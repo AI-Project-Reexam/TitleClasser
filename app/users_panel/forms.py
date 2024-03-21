@@ -10,4 +10,3 @@ class ArticleForm(forms.Form):
             }
         )
     )
-

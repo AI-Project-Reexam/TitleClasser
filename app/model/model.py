@@ -33,7 +33,7 @@ def preprocess_text(txt):
 
 def train():
     print("Loading data...")
-    con = sqlite3.connect("model/data/dataset.db")
+    con = sqlite3.connect("data/dataset.db")
     df = pd.read_sql_query("SELECT * FROM Dataset", con)
     con.close()
 
