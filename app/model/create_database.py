@@ -5,7 +5,7 @@ import sqlite3
 
 from model import preprocess_text
 
-con = sqlite3.connect("data/dataset.db")
+con = sqlite3.connect("model/data/dataset.db")
 cur = con.cursor()
 
 # Load data
