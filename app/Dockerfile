@@ -11,7 +11,6 @@ ENV DEBUG 0
 
 # install dependencies
 # install spacy dependencies
-COPY ./requirements.txt .
 COPY requirements.txt requirements.txt
 RUN pip install --upgrade pip
 RUN python -m pip install tensorflow
