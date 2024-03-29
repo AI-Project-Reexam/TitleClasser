@@ -12,6 +12,15 @@ ENV DEBUG 0
 # install dependencies
 # install spacy dependencies
 COPY requirements.txt requirements.txt
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    python3-dev \
+    libssl-dev \
+    libffi-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    zlib1g-dev 
+    
 RUN pip install --upgrade pip
 RUN python -m pip install tensorflow
 RUN pip install -U pip setuptools wheel
