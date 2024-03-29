@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.11-alpine
+FROM python:3.11
 
 # set work directory
 WORKDIR /app
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxml2-dev \
     libxslt1-dev \
     zlib1g-dev 
-    
+
 RUN pip install --upgrade pip
 RUN python -m pip install tensorflow
 RUN pip install -U pip setuptools wheel
