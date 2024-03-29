@@ -39,7 +39,7 @@ COPY . .
 RUN python manage.py collectstatic --noinput
 
 # add and run as non-root user
-RUN adduser --disabled-password --gecos '' user
+RUN adduser --disabled-password user
 USER user
 
 # run gunicorn
