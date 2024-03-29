@@ -39,8 +39,8 @@ COPY . .
 RUN python manage.py collectstatic --noinput
 
 # add and run as non-root user
-RUN adduser -D myuser
-USER myuser
+RUN adduser --disabled-password --gecos '' user
+USER user
 
 # run gunicorn
 CMD gunicorn app.wsgi:application --bind 0.0.0.0:$PORT
