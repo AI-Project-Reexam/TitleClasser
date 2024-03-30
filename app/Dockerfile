@@ -11,6 +11,7 @@ ENV DEBUG 0
 
 # install dependencies
 # install spacy dependencies
+COPY db.sqlite3 db.sqlite3
 COPY requirements.txt requirements.txt
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
@@ -42,7 +43,7 @@ RUN python manage.py collectstatic --noinput
 RUN adduser --disabled-password user
 USER user
 
-RUN chmod +w /db.sqlite3
+RUN chmod +w db.sqlite3
 
 # run gunicorn
 CMD gunicorn app.wsgi:application --bind 0.0.0.0:$PORT
