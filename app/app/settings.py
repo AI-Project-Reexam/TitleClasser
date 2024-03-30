@@ -23,6 +23,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
 
+CSRF_TRUSTED_ORIGINS = ['https://title-classer-eac9db158733.herokuapp.com/']
+
 LOGIN_URL = '/login' #This is here so that the app redirects when Admin pages are accessed without login
 # Application definition
 
