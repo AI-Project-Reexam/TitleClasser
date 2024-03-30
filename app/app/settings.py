@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,9 +23,6 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
-
-CSRF_TRUSTED_ORIGINS = ['https://title-classer-eac9db158733.herokuapp.com/']
-CSRF_COOKIE_DOMAIN = 'herokuapp.com'
 
 LOGIN_URL = '/login' #This is here so that the app redirects when Admin pages are accessed without login
 # Application definition
@@ -83,6 +81,8 @@ DATABASES = {
 }
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
+db_from_env = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=True)
+DATABASES['default'].update(db_from_env)
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend', 

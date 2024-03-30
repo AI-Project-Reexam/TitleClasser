@@ -31,7 +31,7 @@ RUN pip install gunicorn
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install -U spacy
 RUN python -m spacy download en_core_web_sm
-RUN echo "Hello world"
+RUN pip install dj-database-url
 
 # copy project
 COPY . .
@@ -41,6 +41,10 @@ RUN python manage.py collectstatic --noinput
 
 # add and run as non-root user
 RUN adduser --disabled-password user
+
+RUN chown user:user /app/db.sqlite3
+RUN chmod 755 /app/db.sqlite3
+
 USER user
 
 # run gunicorn
