@@ -1,5 +1,5 @@
 # TitleClasser
-Address: https://title-classer-43bc9ae7d642.herokuapp.com/
+Address: https://title-classer-43bc9ae7d642.herokuapp.com/ (Currently off)
 ## Description
 The purpose of this project is to automate classification of articles into a specific category. The size of the text can vary from the first paragraph to the entire article. 
 
